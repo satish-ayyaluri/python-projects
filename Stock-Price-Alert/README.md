@@ -1,29 +1,29 @@
 📊 Stock Market Alert System (Python)
 📌 Overview
 
-This project is a Python-based automation system that tracks stock price movements and sends real-time SMS alerts when a stock changes significantly. It uses financial APIs, news APIs, and Twilio SMS service to deliver timely updates.
+This is a Python automation project that tracks stock price movements and sends SMS alerts when a stock changes significantly. It also fetches related news headlines and sends them via Twilio SMS.
 
-The system is designed for portfolio tracking and learning purposes in Python automation and API integration.
+The project demonstrates API integration, automation, error handling, and secure environment variable management.
 
 🚀 Features
-📈 Fetches real-time stock price data
-📉 Calculates percentage change in stock price
-📰 Fetches latest news related to the stock/company
-📲 Sends SMS alerts using Twilio
-🔐 Secure API key management using .env file
+📈 Fetch real-time stock price data
+📉 Detect percentage change in stock price
+📰 Fetch latest news articles for the stock
+📲 Send SMS alerts using Twilio
+🔐 Secure API handling using .env file
 ⚠️ Error handling for invalid stock symbols and API failures
 🛠️ Tech Stack
 Python 3
-Requests (HTTP API calls)
+Requests
 Twilio API (SMS service)
 Alpha Vantage API (Stock data)
-NewsAPI (Latest news)
-python-dotenv (Environment variables)
+NewsAPI (News data)
+python-dotenv
 📁 Project Structure
 Stock-Alert-System/
 │
 ├── main.py
-├── .env (not uploaded)
+├── .env (NOT uploaded)
 ├── .env.example
 ├── .gitignore
 └── README.md
@@ -35,7 +35,7 @@ cd stock-alert-system
 pip install requests twilio python-dotenv
 3. Create .env file
 
-Create a .env file in the project root:
+Create a .env file in the project root and add the following:
 
 STOCK_ENDPOINT=https://www.alphavantage.co/query
 NEWS_ENDPOINT=https://newsapi.org/v2/everything
@@ -47,36 +47,51 @@ acc_id=your_twilio_account_sid
 api=your_twilio_auth_token
 
 from_="+your_twilio_number"
-to="+your_phone_number"
-4. Run the project
+to="+your_verified_phone_number"
+🔑 Get Your API Keys From Here
+📊 Alpha Vantage API:
+https://www.alphavantage.co/support/#api-key
+📰 NewsAPI:
+https://newsapi.org/register
+📲 Twilio Console:
+https://www.twilio.com/console
+📄 .env.example
+
+This file shows required variables (no secrets included):
+
+STOCK_ENDPOINT=
+NEWS_ENDPOINT=
+stock_api=
+news_api=
+acc_id=
+api=
+from_=
+to=
+▶️ Run the Project
 python main.py
 📊 How It Works
-The program fetches stock price data from Alpha Vantage API
-It compares yesterday’s and previous day’s closing prices
-If the price change exceeds a threshold (e.g., 5%), it triggers an alert
-Latest news about the stock is fetched from NewsAPI
-An SMS containing stock movement + news headline is sent via Twilio
+Fetch stock data from Alpha Vantage API
+Compare yesterday and previous close price
+If price change exceeds threshold (e.g. 5%), trigger alert
+Fetch related news using NewsAPI
+Send SMS alert via Twilio
 ⚠️ Error Handling
 Handles invalid stock symbols
-Handles API failures and rate limits
-Prevents crashes when data is missing
-📌 Example Output SMS
-TSLA 📉 -5.23%
-
-Headline: Tesla stock drops amid market pressure
-Brief: Tesla shares fell after market-wide selloff...
-🔒 Security Note
-API keys are stored in .env file
-.env is excluded using .gitignore
+Handles API errors and rate limits
+Prevents program crashes when data is missing
+🔒 Security Best Practices
+API keys stored in .env file
+.env is ignored using .gitignore
 .env.example provided for reference
+No sensitive data is uploaded to GitHub
 🎯 Future Improvements
-Add user portfolio input system
-Add email + Telegram alerts
-Build a web dashboard using Streamlit
-Store alerts in database
-Add real-time market streaming support
+📊 Add portfolio-based stock tracking
+📱 Add Telegram/email notifications
+📈 Add Streamlit dashboard UI
+💾 Store alerts in database
+⏱️ Schedule automatic daily runs
 👨‍💻 Author
 
 Ayyaluri Satish Kumar Reddy
-Cybersecurity & Python Developer
-GitHub: [your-username]
+Cybersecurity & Python Enthusiast
+GitHub: https://github.com/your-username
